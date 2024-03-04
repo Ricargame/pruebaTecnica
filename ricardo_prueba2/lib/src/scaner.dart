@@ -5,6 +5,7 @@ import 'package:ricardo_prueba2/src/conexion.dart';
      barcodeScner = await FlutterBarcodeScanner.scanBarcode(
           '#ff6666', 'Cancel', true, ScanMode.DEFAULT);
     if (barcodeScner.isNotEmpty){
+      print(barcodeScner);
       conection(context,barcodeScner);
     }
     

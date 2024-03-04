@@ -1,38 +1,42 @@
-
 import 'package:flutter/material.dart';
 
-class MyTabla  extends StatelessWidget {
-  final nombre;
-  final value;
-  final precio;
-  const MyTabla({super.key, this.nombre, this.value, this.precio});
+class MyTabla extends StatefulWidget {
+  final List<Map<String,dynamic>>datos;
+  const MyTabla({super.key, required this.datos});
+
+  @override
+  
+  State<MyTabla> createState() => _MyTablaState();
+}
+
+class _MyTablaState extends State<MyTabla> {
+  
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(  
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Contenido'),
-          centerTitle: true,
-          backgroundColor: Colors.blue,
-          ),
-          body: Center(
-            child: DataTable(columns: 
-            const <DataColumn> [
-              DataColumn(label: Expanded(child: Text('Nombre',style:TextStyle(fontSize:10),textAlign: TextAlign.center))),
-              DataColumn(label: Expanded(child: Text('Codigo',style:TextStyle(fontSize:10),textAlign: TextAlign.center))),
-              DataColumn(label: Expanded(child: Text('Precio',style:TextStyle(fontSize:10),textAlign: TextAlign.center))),
-            ], 
-            rows: <DataRow>[
-                DataRow(cells: <DataCell> [
-                DataCell(Text(nombre['nombre'][0],style: const TextStyle(fontSize:10),textAlign: TextAlign.center)),
-                DataCell(Text(value['Value'],style: const TextStyle(fontSize: 10),textAlign: TextAlign.center)),
-                DataCell(Text(precio['Precio'],style: const TextStyle(fontSize: 10),textAlign: TextAlign.center)),
-              ])
-            ]),
-          ),
+      
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor:Colors.blue,
+        title: const Text('Tabla de producto'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child:  DataTable(columns: const <DataColumn>[
+      DataColumn(label: Text('Nombre',textAlign:TextAlign.center)),
+      DataColumn(label: Text('Precio',textAlign:TextAlign.center)),
+      DataColumn(label: Text('Almacen',textAlign:TextAlign.center))
+    ], rows: widget.datos.map((dato){
+      return DataRow(cells: <DataCell> [
+        DataCell(Text(dato['nombre']??'Producto',)),
+        DataCell(Text(dato['precio']?? 'no',)),
+        DataCell(Text(dato['value']??'encontrado'))
+      ]);
+    }).toList(),
+    ),
       ),
     );
+    
+   
   }
 }
 

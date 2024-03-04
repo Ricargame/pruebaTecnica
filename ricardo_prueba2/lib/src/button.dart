@@ -12,20 +12,7 @@ class _MyButtonState extends State<MyButton> {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton.extended(onPressed: () => scaner(context),label: const Text('ESCANEAR'),backgroundColor: Colors.lightBlue, foregroundColor: Colors.white,);
+    return FloatingActionButton.extended(onPressed: () => scaner(context),label:const Icon(Icons.camera),backgroundColor: Colors.lightBlue, foregroundColor: Colors.white,);
   }
 }
 
-class Mybutton2 extends StatefulWidget {
-  const Mybutton2({super.key});
-
-  @override
-  State<Mybutton2> createState() => _Mybutton2State();
-}
-
-class _Mybutton2State extends State<Mybutton2> {
-  @override
-  Widget build(BuildContext context) {
-    return FloatingActionButton.extended(onPressed: ()=> (context),label: const Text('Ver tabla'),);
-  }
-}

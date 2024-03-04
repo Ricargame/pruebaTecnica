@@ -9,13 +9,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.black,
-        body: Center(
-          child: MyButton()
+        body: const Center(
+          child: Text('Escane el codigo de su producto'),
         ),
+        appBar: AppBar(
+          title: const Text('Scaner de producto'),
+          centerTitle: true,
+          backgroundColor: Colors.blue,
+        ),
+        bottomNavigationBar: const BottomAppBar(
+          color: Colors.blue,
+        ),
+        floatingActionButton: const MyButton(),
       ),
     );
   }
