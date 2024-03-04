@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:ricardo_prueba2/src/button.dart';
+import 'package:ricardo_prueba2/src/lista.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyApp(datos: [],));
 }
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+  final List<Map<String,dynamic>>datos;
+  const MyApp({super.key, required this.datos});
+  
   @override
+
   Widget build(BuildContext context) {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: const Center(
-          child: Text('Escane el codigo de su producto'),
+        body: Center(
+          child: MyTabla(datos:datos),
         ),
         appBar: AppBar(
           title: const Text('Scaner de producto'),
@@ -21,7 +24,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.blue,
         ),
         bottomNavigationBar: const BottomAppBar(
-          color: Colors.blue,
+          color: Colors.blue, 
         ),
         floatingActionButton: const MyButton(),
       ),

@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:ricardo_prueba2/main.dart';
 import 'package:ricardo_prueba2/src/alert.dart';
-import 'package:ricardo_prueba2/src/lista.dart';
 
 Future conection(context,qr) async{
     // var url = 'http://10.11.12.101/api/point-of-sales/1000000/product-prices?price_list_id=1000019&search_value=$qr&warehouse_id=1000079&page_size=15';
@@ -49,8 +49,7 @@ Future<void> CapData (context,response) async {
           'value':value
         });
       }
-       ViewTab(context,listaDato);
-      
+        ViewTab(context,listaDato);
     }else{
       listaDato.add({
           'nombre':'Producto',
@@ -58,9 +57,11 @@ Future<void> CapData (context,response) async {
           'value':'Encontrado'
         });
         ViewTab(context,listaDato);
-  }
+      }
 }
-  
+
+
+
 Future<Future<Object?>> ViewTab (context,conted) async {
-    return Navigator.push(context,MaterialPageRoute(builder: (context) =>MyTabla(datos: conted)));
+    return Navigator.push(context,MaterialPageRoute(builder: (context) =>MyApp(datos: conted)));
 }
