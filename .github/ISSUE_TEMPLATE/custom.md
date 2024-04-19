@@ -1,4 +1,10 @@
-<pre><code> name: Discussion about: Delivery template title: "Weekly Delivery" labels: Discussion assignees: '' category: General --- <!-- Note: In order to better solve your problem, please refer to the template to provide complete information, accurately describe the problem, and the incomplete information issue will be closed. --> <script> var today = new Date(); var dayOfWeek = today.getDay(); if (dayOfWeek === 3) { document.write("Created on: " + today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })); } </script>
+name: Discussion 
+about: Delivery 
+template title: "Weekly Delivery" 
+labels: Discussion 
+assignees: '' 
+category: General --- <!-- Note: In order to better solve your problem, please refer to the template to provide complete information, accurately describe the problem, and the incomplete information issue will be closed. --> 
+<script> var today = new Date(); var dayOfWeek = today.getDay(); if (dayOfWeek === 3) { document.write("Created on: " + today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })); } </script>
 #### Correcciones/Mejoras
 *
 *
