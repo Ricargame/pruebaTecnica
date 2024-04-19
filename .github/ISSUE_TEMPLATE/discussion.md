@@ -2,7 +2,7 @@
 name: Discussion
 about: Delivery template
 title: "Weekly Delivery"
-date: {{ "now" | date: "%Y-%m-%d" }}
+date: '{{ "now" | date: "%Y-%m-%d" }}'
 labels: Discussion
 assignees: ''
 category: General
